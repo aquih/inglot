@@ -22,11 +22,5 @@
             </div>
         </xpath>        
     </t>
-    <t t-name="ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('pos-receipt-contact')]/div" position="before">
-            <div><t t-esc="props.data.diario_factura_nombre" /></div>
-            <div><t t-esc="props.data.diario_factura_direccion" /></div>
-        </xpath>
-    </t>
 
 </templates>
