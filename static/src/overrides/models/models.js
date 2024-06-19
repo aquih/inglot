@@ -2,6 +2,7 @@
 
 import { patch } from "@web/core/utils/patch";
 import { Order, Orderline } from "@point_of_sale/app/store/models";
+import { Payment } from "@point_of_sale/app/store/models";
 import { omit } from "@web/core/utils/objects";
 import {
     formatFloat,
@@ -56,4 +57,27 @@ patch(Order.prototype, {
             descuento: this.obtener_subtotal(this.orderlines.map((l) => omit(l.getDisplayData(), "internalNote"))) - this.get_total_with_tax(),
         };
     }
+});
+
+patch(Payment.prototype, {
+    setup(obj, options) {
+        super.setup(...arguments);
+        this.numero_autorizacion = '';
+        this.cuatro_digitos = '';
+    },
+
+    export_as_JSON(){
+        const json = super.export_as_JSON(...arguments);
+        json.numero_autorizacion = this.numero_autorizacion;
+        json.cuatro_digitos = this.cuatro_digitos;
+        return json;
+    },
+
+    export_for_printing(){
+        const json = super.export_for_printing(...arguments);
+        json.numero_autorizacion = this.numero_autorizacion;
+        json.cuatro_digitos = this.cuatro_digitos;
+        return json;
+    },
+
 });
