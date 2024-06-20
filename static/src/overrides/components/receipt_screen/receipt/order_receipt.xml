@@ -11,16 +11,16 @@
                 <span t-esc="props.data.cantidad_articulos" class="pos-receipt-right-align"/>
             </div>
         </xpath>
-        <xpath expr="//div[hasclass('pos-receipt-amount')]" position="before">
-            <div class="pos-receipt-amount">
-                SUBTOTAL
-                <span t-esc="props.formatCurrency(props.data.subtotal)" class="pos-receipt-right-align"/>
-            </div>
-            <div class="pos-receipt-amount">
-                DESCUENTO
-                <span t-esc="props.formatCurrency(props.data.descuento)" class="pos-receipt-right-align"/>
-            </div>
-        </xpath>        
+        <!--<xpath expr="//div[hasclass('pos-receipt-amount')]" position="before">-->
+        <!--    <div class="pos-receipt-amount">-->
+        <!--        SUBTOTAL-->
+        <!--        <span t-esc="props.formatCurrency(props.data.subtotal)" class="pos-receipt-right-align"/>-->
+        <!--    </div>-->
+        <!--    <div class="pos-receipt-amount">-->
+        <!--        DESCUENTO-->
+        <!--        <span t-esc="props.formatCurrency(props.data.descuento)" class="pos-receipt-right-align"/>-->
+        <!--    </div>-->
+        <!--</xpath>        -->
     </t>
 
 </templates>
