@@ -20,15 +20,11 @@ patch(Orderline.prototype, {
         const data = super.getDisplayData(...arguments);
         var descuento = 0;
         data.productDefaultCode = this.product.default_code
-        console.log('data')
-        
         if (data.discount > 0){
             var precio_total = (parseFloat(data.unitPrice) / (1-(data.discount/100))) * parseFloat(data.qty)
             descuento = precio_total - parseFloat(data.price)
         }
         data.descuento = round_pr(Math.max(0, descuento), this.pos.currency.rounding);
-        console.log(data)
-        console.log(descuento)
         return data
     }
     
