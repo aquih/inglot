@@ -39,7 +39,9 @@ patch(Order.prototype, {
     obtener_total_articulos(lineas){
         var total_articulos = 0;
         lineas.forEach(function (linea) {
-            total_articulos += parseFloat(linea.qty);
+            if (parseFloat(linea.price) > 0){
+                total_articulos += parseFloat(linea.qty);
+            }
         });
         return total_articulos
     },
