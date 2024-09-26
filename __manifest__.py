@@ -13,10 +13,11 @@
     'category': 'Uncategorized',
     'version': '0.1',
 
-    'depends': ['base', 'point_of_sale','l10n_gt_extra','pos_gt'],
+    'depends': ['base', 'point_of_sale','l10n_gt_extra','pos_gt','stock'],
     'data': [
         'views/pos_payment_method_view.xml',
         'views/pos_order_view.xml',
+        'views/stock_picking_views.xml',
     ],    
     'assets': {
         'point_of_sale._assets_pos': [
