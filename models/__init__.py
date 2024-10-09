@@ -6,3 +6,4 @@ from . import pos_session
 from . import pos_payment_method
 from . import stock_move
 from . import stock_picking
+from . import pos_config
