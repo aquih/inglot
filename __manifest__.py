@@ -18,7 +18,7 @@
         'views/pos_payment_method_view.xml',
         'views/pos_order_view.xml',
         'views/stock_picking_views.xml',
-        'views/pos_config_view.xml',
+        'data/base_automation.xml',
     ],    
     'assets': {
         'point_of_sale._assets_pos': [

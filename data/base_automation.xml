@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="mail_template_inglot_producto_negativo" model="mail.template">
+        <field name="name">Producto negativo</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="subject">Producto en negativo {{ ctx['quant_productos'] }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="description">Producto en negativo</field>
+        <field name="auto_delete" eval="True"/>
+    </record>    
+    
+    <record id="accion_enviar_correo" model="ir.actions.server">
+        <field name="name">Accion codigo python</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="code">
+record._enviar_correo_cantidad_negativa()
+        </field>    
+    </record>
+    
+    <record id="inglot_enviar_correo_producto_negativo" model="base.automation">
+        <field name="name">Enviar correo productos en negativo</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="trigger_field_ids" eval="[(6,0, [ref('stock.field_stock_picking__date_done')])]"/>
+        <field name="action_server_ids" eval="[(6, 0, [ref('inglot.accion_enviar_correo')])]"/>
+    </record>
+    
+</odoo>

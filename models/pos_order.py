@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models
+import logging
 
 class PosOrder(models.Model):
     _inherit = 'pos.order'
