@@ -19,6 +19,7 @@ class StockPicking(models.Model):
                     costo += costo_linea
                     linea.costo = costo_linea
                 albaran.costo_total = costo
+        return res
                 
     def _enviar_correo_cantidad_negativa(self):
         productos_negativos = []
