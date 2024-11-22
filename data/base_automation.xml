@@ -8,6 +8,19 @@
         <field name="partner_to">{{ object.partner_id.id }}</field>
         <field name="description">Producto en negativo</field>
         <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 15px;">
+            Notificación de Venta de producto en negativo!!<br />
+            Punto de venta <t t-out="object.picking_type_id.warehouse_id.name or ''">Tienda1</t>
+            - Tienda <t t-out="object.origin or ''">VENT/0001</t>
+            <br /><br />
+            Attm
+            <br /><br />
+            Sistema Odoo.
+    </p>    
+</div>    
+        </field>    
     </record>    
     
     <record id="accion_enviar_correo" model="ir.actions.server">
