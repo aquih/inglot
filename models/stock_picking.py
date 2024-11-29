@@ -26,7 +26,7 @@ class StockPicking(models.Model):
         ubicacion_id = self.picking_type_id.default_location_src_id.id
         for linea in self.move_ids_without_package:
             existencia = linea.product_id.with_context({'location' : ubicacion_id}).qty_available
-            if (existencia - linea.quantity) < 0:
+            if existencia < 0:
                 productos_negativos.append(linea.product_id.name)
 
         if len(productos_negativos) > 0:
