@@ -27,7 +27,7 @@ class StockPicking(models.Model):
         for linea in self.move_ids_without_package:
             existencia = linea.product_id.with_context({'location' : ubicacion_id}).qty_available
             if existencia < 0:
-                productos_negativos.append(linea.product_id.name)
+                productos_negativos.append(linea.product_id.display_name)
 
         if len(productos_negativos) > 0:
             productos = ','.join(productos_negativos)
